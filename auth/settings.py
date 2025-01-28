@@ -26,9 +26,9 @@ from decouple import config
 
 SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [['auth.onrender.com', 'localhost']]
+ALLOWED_HOSTS = ['ath-service-64vx.onrender.com', '127.0.0.1', 'localhost']
 
 
 CSRF_COOKIE_SECURE = True
