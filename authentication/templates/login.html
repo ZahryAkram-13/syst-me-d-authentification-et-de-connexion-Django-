@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+<p class="title">Login</p>
+<p class="subtitle">please enter your cridential</p>
+{% endblock %}
+{% block content %}
+
+
+<form method="POST" action="{% url 'login' %}" class="box">
+    {% csrf_token %}
+    <div class="field">
+        <label class="label">Email</label>
+        <p class="control has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Email" name="email">
+        </p>
+        {% if form.email.errors %}
+        <p class="help is-danger">{{ form.email.errors }}</p>
+        {% endif %}
+    </div>
+    <div class="field">
+        <label class="label">Password</label>
+        <p class="control has-icons-left">
+            <input class="input" type="password" placeholder="Password" name="password">
+        </p>
+        {% if form.password.errors %}
+        <p class="help is-danger">{{ form.password.errors }}</p>
+        {% endif %}
+    </div>
+    <div class="field">
+        <div class="control">
+            <button class="button is-link" type="submit">Submit</button>
+        </div>
+    </div>
+    <hr>
+    <div class="field">
+        don't have one <a href="{% url 'signup' %}">Create Account here</a>
+    </div>
+
+</form>
+
+{% endblock %}

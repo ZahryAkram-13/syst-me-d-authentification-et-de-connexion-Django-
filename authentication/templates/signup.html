@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}
+<p class="title">Sign up</p>
+<p class="subtitle">Create your account easily</p>
+{% endblock %}
+{% block content %}
+
+<form action="{% url 'signup' %}" method="POST" class="box">
+  {% csrf_token %}
+
+  <div class="field">
+    <label class="label">Login</label>
+    <div class="control">
+      <input class="input" type="text" name="login" placeholder="Login">
+    </div>
+    {% if form.login.errors %}
+    <p class="help is-danger">{{ form.login.errors }}</p>
+    {% endif %}
+  </div>
+
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control">
+      <input class="input" type="text" name="email" placeholder="e.g toto@toto.toto">
+    </div>
+    {% if form.email.errors %}
+    <p class="help is-danger">{{ form.email.errors }}</p>
+    {% endif %}
+  </div>
+
+  <div class="field">
+    <label class="label">Phone</label>
+    <div class="control">
+      <input class="input" type="text" name="phone" placeholder="e.g +33 5 12 45 56 88">
+    </div>
+    {% if form.phone.errors %}
+    <p class="help is-danger">{{ form.phone.errors }}</p>
+    {% endif %}
+  </div>
+
+  <div class="field">
+    <label class="label">Password</label>
+    <p class="control has-icons-left">
+      <input class="input" type="password" name="password" placeholder="Password">
+    </p>
+    {% if form.password.errors %}
+    <p class="help is-danger">{{ form.password.errors }}</p>
+    {% endif %}
+  </div>
+
+  <div class="field">
+    <label class="label">Confirm Password</label>
+    <p class="control has-icons-left">
+      <input class="input" type="password" name="re_Password" placeholder="Confirm Password">
+    </p>
+    {% if form.re_Password.errors %}
+    <p class="help is-danger">{{ form.re_Password.errors }}</p>
+    {% endif %}
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit">Submit</button>
+    </div>
+
+    <button bclass="button is-link is-light">
+      <a href="{% url 'home' %}" class="control">
+        Cancel
+      </a>
+    </button>
+    </a>
+  </div>
+
+</form>
+
+{% endblock %}
